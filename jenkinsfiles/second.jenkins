@@ -21,9 +21,9 @@ pipeline {
             }
             stage('Deploying now') {
                 agent {
-                        dockerNode('eureka-jenkins') {
-//                            java -v
-                        }
+//                        dockerNode('eureka-jenkins') {
+////                            java -v
+//                        }
                 }
 
                 steps {
