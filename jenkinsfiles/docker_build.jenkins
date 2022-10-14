@@ -3,29 +3,18 @@
 properties([disableConcurrentBuilds()])
 
 pipeline {
-    agent {
-        label 'master'
-        }
-    triggers { pollSCM('* * * * *') }
-    options {
-        buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
-        timestamps()
-    }
+    agent { docker{ images 'gradle:jdk11' }}
     stages {
         stage("create docker image") {
             steps {
                 echo " ============== start building image =================="
-                dir ('docker/toolbox') {
-                	sh 'docker build -t hello-world '
-                }
             }
         }
         stage("docker push") {
             steps {
                 echo " ============== start pushing image =================="
-                sh '''
-                docker push hello-world
-                '''
+                sh 'java -version'
+                sh 'docker pull hello-world'
             }
         }
     }
