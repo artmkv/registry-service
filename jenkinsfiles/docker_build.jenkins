@@ -9,7 +9,7 @@ pipeline {
         stage("create docker image") {
             steps {
                 echo " ============== start building image =================="
-
+                powershell 'docker -v'
                 echo " ============== finish building image =================="
             }
 
