@@ -21,10 +21,9 @@ pipeline {
             }
             stage('Deploying now') {
                 agent {
-                    docker {
-                        reuseNode true
-                        image 'nginx'
-                    }
+                        dockerNode('eureka-jenkins') {
+//                            java -v
+                        }
                 }
 
                 steps {
