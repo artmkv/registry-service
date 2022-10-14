@@ -20,11 +20,12 @@ pipeline {
                 }
             }
             stage('Deploying now') {
-                agent {
+                agent any
+//                        {
 //                        dockerNode('eureka-jenkins') {
 ////                            java -v
 //                        }
-                }
+//                }
 
                 steps {
                     echo "Docker Created"
