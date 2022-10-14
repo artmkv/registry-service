@@ -3,18 +3,13 @@
 properties([disableConcurrentBuilds()])
 
 pipeline {
-    agent { docker{ images 'gradle:jdk11' }}
+    agent any
     stages {
         stage("create docker image") {
             steps {
                 echo " ============== start building image =================="
-            }
-        }
-        stage("docker push") {
-            steps {
-                echo " ============== start pushing image =================="
-                sh 'java -version'
-                sh 'docker pull hello-world'
+
+                echo " ============== finish building image =================="
             }
         }
     }
