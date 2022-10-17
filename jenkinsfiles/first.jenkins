@@ -13,6 +13,7 @@ pipeline {
                 echo "echo \"First Test\""
                 echo "--- port ${EUREKA_PORT} "
                 sh "ls -la"
+                echo "--- REGION ${REGION} "
             }
         }
     }
