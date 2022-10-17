@@ -4,10 +4,12 @@ properties([disableConcurrentBuilds()])
 
 pipeline {
     agent any
+
     stages {
         stage("First step") {
             steps {
                 echo "echo \"First Test\""
+                echo "--- port ${EUREKA_SERVER} "
                 echo "--- port ${EUREKA_PORT} "
                 sh "ls -la"
             }
