@@ -3,17 +3,16 @@
 properties([disableConcurrentBuilds()])
 
 pipeline {
-    agent {
-        label 'master'
-    }
-    options {
-        buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
-        timestamps()
+    agent any
+    environment{
+        EUREKA_PORT = "8761";
     }
     stages {
         stage("First step") {
             steps {
-                sh 'echo "First Test"'
+                echo "echo \"First Test\""
+                echo "--- port ${EUREKA_PORT} "
+                sh "ls -la"
             }
         }
     }
