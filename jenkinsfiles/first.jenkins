@@ -4,16 +4,12 @@ properties([disableConcurrentBuilds()])
 
 pipeline {
     agent any
-    environment{
-        EUREKA_PORT = "8761";
-    }
     stages {
         stage("First step") {
             steps {
                 echo "echo \"First Test\""
                 echo "--- port ${EUREKA_PORT} "
                 sh "ls -la"
-                echo "--- REGION ${REGION} "
             }
         }
     }
